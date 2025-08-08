@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            background-color: #FBF8EF;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .landing img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            width: 81.5%;
+            height: 8vh;
+            background-color: rgb(222, 227, 223);
+            box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background: transparent;
+        }
+
+        .header img {
+            width: 8vh;
+            cursor: pointer;
+            background: transparent;
+
+        }
+
+        .header h6 {
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: rgb(222, 227, 223) !important;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            background-color: rgb(222, 227, 223);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: inline-block;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+            padding: 10px 5px;
+            background-color: rgb(222, 227, 223);
+        }
+
+        .nav-menu a:hover {
+            background-color: rgb(253, 57, 59);
+            border-radius: 5px;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 10px auto 0 auto;
+            padding: 10px;
+            position: relative;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+
+        .side {
+            border-radius: 8px;
+            width: 25%;
+            background-color: rgb(222, 227, 223);
+            border: 1px solid black;
+            min-height: 58vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .side h4 {
+            align-items: center;
+            background-color: rgb(253, 57, 59);
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        form {
+            width: 90%;
+            max-width: 300px;
+            background-color: rgb(222, 227, 223);
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 3px;
+            width: 100%;
+            background-color: rgb(222, 227, 223);
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            background-color: rgb(222, 227, 223);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .side-down {
+            border: 1px solid black;
+            width: 40%;
+            height: 20px;
+        }
+
+        .right {
+            border-radius: 8px;
+            width: 65%;
+            flex-grow: 0;
+            overflow: hidden;
+            height: 85vh;
+            background-color: rgb(222, 227, 223);
+            box-shadow: 22px 11px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .top {
+            border-radius: 5px;
+            width: 100%;
+            height: 240px;
+
+        }
+
+        .top img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-wrapper {
+            width: 100%;
+
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .bottom-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+            gap: 20px;
+            background-color: transparent;
+        }
+
+        .box {
+            flex: 1;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            border-radius: 8px;
+            background-color: white;
+            flex-direction: column;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .box:last-child {
+            margin-right: 0;
+        }
+
+        .box a {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .box img {
+            width: 100%;
+            display: block;
+            height: 148px;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        .box a:hover {
+            background-color: darkred;
+        }
+
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: transparent;
+        }
+
+        .box-container a {
+            display: block;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .box-container a:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .box-label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+            color: black;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="landing">
+        <img src="./photos/Untitled design.png" alt="">
+    </div>
+    <nav class="nav container">
+        <div class="header">
+            <img src="./photos/logo.png" alt="blood-center-logo">
+            <h6><b style="background-color: rgb(222,227,223);"><a href="./home.html" style="text-decoration: none; color: black; background: transparent;">Blood center</a></b></h6>
+        </div>
+        <div class="nav-menu">
+            <a href="./giveBlood.html">Give Blood</a>
+            <a href="./whyDonate.html">Why Donate Blood?</a>
+            <a href="./bloodDonation.html">About Blood Donation</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="side">
+
+                <h4>Register as Donor</h4>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="Enter your location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blood-group">Blood Group</label>
+                        <select id="blood-group" required>
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Enter your age" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aadhar">Aadhar Number</label>
+                        <input type="text" id="aadhar" placeholder="Enter Aadhar Number" pattern="\d{12}" required>
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+            <div class="right">
+                <div class=" top image-wrapper">
+                    <img id="slideshow" src="./photos/bloodbank.jpg" alt="Slideshow Image">
+                </div>
+                <div class="bottom-row">
+                    <div class="box-container">
+                        <div class="box-label" style="cursor: pointer;">Register-form</div>
+                        <a href="./CompatibilityMatching.html" class="box">
+                            <img src="./photos/blood-donation-procedure-isometric-set-260nw-1909262467.jpg"
+                                alt="Donate Blood">
+                        </a>
+                    </div>
+
+                    <div class="box-container">
+                        <div class="box-label" style="cursor: pointer;">Demand Forecasting</div>
+                        <a href="./DemandForecasting.html" class="box">
+                            <img src="./photos/bloodtransfusion_0.jpg" alt="Find Donors">
+                        </a>
+                    </div>
+
+                    <div class="box-container">
+                        <div class="box-label" style="color: red; cursor: pointer;">Emergency Notifications</div>
+                        <a href="./EmergencyNotifications.html" class="box">
+                            <img src="./photos/476918433_1045751297594307_1808161460886454960_n.jpg" alt="Blood Banks">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const imagePaths = [
+            "./photos/blood-samples-1280x640.webp",
+            "./photos/blood_bank.png",
+            "./photos/bloodbank.jpg"
+        ];
+
+        let index = 0;
+        const imgElement = document.getElementById("slideshow");
+
+        setInterval(() => {
+            index = (index + 1) % imagePaths.length;
+            imgElement.style.opacity = "0.5";
+            setTimeout(() => {
+                imgElement.src = imagePaths[index];
+                imgElement.style.opacity = "1";
+            }, 500);
+        }, 3000);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                location: document.getElementById('location').value,
+                bloodGroup: document.getElementById('blood-group').value,
+                age: document.getElementById('age').value,
+                aadhar: document.getElementById('aadhar').value,
+            };
+
+            const existingData = localStorage.getItem('userRegistrations');
+            let registrations = existingData ? JSON.parse(existingData) : [];
+
+            registrations.push(formData);
+
+            localStorage.setItem('userRegistrations', JSON.stringify(registrations));
+
+            this.reset();
+            alert('User registered successfully!');
+
+            // ✅ Log the updated list to verify
+            console.log(JSON.parse(localStorage.getItem('userRegistrations')));
+        });
+    });
+</script>
+
+
+
+
+</html>
